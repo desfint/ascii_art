@@ -25,16 +25,16 @@ fn main() -> ImageResult<()> {
         .map(|pixel| {
             (pixel.iter()
             .fold(0u32, |acc, n| {
-                acc + *n as u32
+                acc + u32::from(*n)
             }) / pixel.len() as u32) as u8
         })
         .collect();
 
     pixels.chunks_exact(width as usize).for_each(|chunk| {
-        chunk.iter().for_each(|pixel| {
+        for pixel in chunk  {
             let brightness = pixel / 4;
             print!("{}", BRIGHTNESS_CHARS[brightness as usize]);
-        });
+        };
         println!(" ");
     });
 
