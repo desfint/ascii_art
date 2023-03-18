@@ -12,7 +12,7 @@ fn main() -> ImageResult<()> {
         .decode()?;
 
     if image.width() > 1000 {
-        image = image.resize(1400, image.height(), CatmullRom);
+        image = image.resize(1000, image.height(), CatmullRom);
     }
 
     let (width, height) = (image.width(), image.height());
